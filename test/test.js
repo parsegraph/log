@@ -1,8 +1,8 @@
-import {assert} from "chai";
-import todo from "../dist/parsegraph-log";
+//import { assert } from "chai";
+import log from "../dist/parsegraph-log";
 
 describe("Package", function () {
-  it("works", ()=>{
-    assert.equal(todo(), 42);
+  it("works", () => {
+    log("No time");
   });
 });
