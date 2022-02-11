@@ -1,7 +1,11 @@
 DIST_NAME = log
 
 SCRIPT_FILES = \
-	src/index.ts
+	src/index.ts \
+	src/NoopTreeLog.ts \
+	src/TreeLog.ts \
+	src/WebsocketTreeLog.ts \
+	test/test.js
 
 all: build lint test coverage esdoc
 
