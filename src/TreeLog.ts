@@ -16,15 +16,28 @@ const format = (str: string, ...args: any[]) => {
   return str;
 };
 
+const MAX_ENTRIES = 1000;
+
 export default class TreeLog {
   _buffer: string[];
+  _failed: boolean;
 
   constructor() {
     this._buffer = [];
+    this._failed = false;
+  }
+
+  fail() {
+    this._buffer = null;
+    this._failed = true;
   }
 
   isEmpty() {
     return !this.hasBuffer() || this._buffer.length === 0;
+  }
+
+  hasFailed() {
+    return this._failed;
   }
 
   hasBuffer() {
@@ -45,7 +58,14 @@ export default class TreeLog {
   }
 
   writeLog(str: string) {
+    if (this.hasFailed()) {
+      return;
+    }
     if (this._buffer) {
+      if (this._buffer.length >= MAX_ENTRIES) {
+        this.fail();
+        return;
+      }
       this._buffer.push(str);
       return;
     }

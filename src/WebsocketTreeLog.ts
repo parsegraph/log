@@ -9,11 +9,9 @@ export default class WebsocketTreeLog extends TreeLog {
   _url: string;
 
   _connectionRetries: number;
-  _failed: boolean;
 
   constructor(url: string) {
     super();
-    this._failed = false;
     this._url = url;
     this._connectionRetries = 0;
     this._connected = false;
@@ -34,8 +32,7 @@ export default class WebsocketTreeLog extends TreeLog {
     if (this._connectionRetries < MAX_RETRIES) {
       this.connect();
     } else {
-      this.clear();
-      this._failed = true;
+      this.fail();
     }
   }
 
@@ -88,12 +85,6 @@ export default class WebsocketTreeLog extends TreeLog {
     } else {
       this.reconnect();
     }
-    if (!this.hasFailed()) {
-      super.writeLog(str);
-    }
-  }
-
-  hasFailed() {
-    return this._failed;
+    super.writeLog(str);
   }
 }
