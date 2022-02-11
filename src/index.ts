@@ -2,11 +2,7 @@ import TreeLog from "./TreeLog";
 import NoopTreeLog from "./NoopTreeLog";
 import WebsocketTreeLog from "./WebsocketTreeLog";
 
-export {
-  TreeLog,
-  NoopTreeLog,
-  WebsocketTreeLog
-};
+export { TreeLog, NoopTreeLog, WebsocketTreeLog };
 
 let loggingEnabled: boolean = false;
 const noopLog: TreeLog = new NoopTreeLog();
