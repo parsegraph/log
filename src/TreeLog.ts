@@ -23,6 +23,18 @@ export default class TreeLog {
     this._buffer = [];
   }
 
+  isEmpty() {
+    return !this.hasBuffer() || this._buffer.length === 0;
+  }
+
+  hasBuffer() {
+    return !!this._buffer;
+  }
+
+  clear() {
+    this._buffer = [];
+  }
+
   flush(): void {
     const buf = this._buffer;
     if (!buf) {
