@@ -1,6 +1,6 @@
 {
   "name": "parsegraph-log",
-  "version": "1.7.0-dev",
+  "version": "1.7.0",
   "description": "log",
   "main": "dist/parsegraph-log.js",
   "types": "dist/log.d.ts",
