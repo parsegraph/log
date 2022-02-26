@@ -1,6 +1,5 @@
 import log, { enableLogging, setLogSink } from "./index";
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("demo");
   root.style.position = "relative";
@@ -8,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   enableLogging();
   setLogSink((msg) => {
     container.appendChild(document.createTextNode(msg));
-    container.appendChild(document.createElement('br'));
+    container.appendChild(document.createElement("br"));
   });
 
   const container = document.createElement("div");
