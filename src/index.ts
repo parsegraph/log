@@ -7,7 +7,7 @@ export { Logger, TreeLog, NoopTreeLog, WebsocketTreeLog };
 
 let loggingEnabled: boolean = false;
 const noopLog: TreeLog = new NoopTreeLog();
-let globalLog: TreeLog = noopLog;
+let globalLog: Logger = noopLog;
 
 export function connectLog(url: string) {
   setLogger(new WebsocketTreeLog(url));
