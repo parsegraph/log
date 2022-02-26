@@ -1,8 +1,9 @@
 import TreeLog from "./TreeLog";
 import NoopTreeLog from "./NoopTreeLog";
 import WebsocketTreeLog from "./WebsocketTreeLog";
+import Logger from "./Logger";
 
-export { TreeLog, NoopTreeLog, WebsocketTreeLog };
+export { Logger, TreeLog, NoopTreeLog, WebsocketTreeLog };
 
 let loggingEnabled: boolean = false;
 const noopLog: TreeLog = new NoopTreeLog();
@@ -21,11 +22,11 @@ export function enableLogging() {
   loggingEnabled = true;
 }
 
-export function getLogger(): TreeLog {
+export function getLogger(): Logger {
   return loggingEnabled ? globalLog : noopLog;
 }
 
-export function setLogger(log: TreeLog) {
+export function setLogger(log: Logger) {
   globalLog = log;
 }
 

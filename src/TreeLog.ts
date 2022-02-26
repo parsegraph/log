@@ -1,3 +1,5 @@
+import Logger from "./Logger";
+
 const format = (str: string, ...args: any[]) => {
   const appending: any[] = [];
 
@@ -18,7 +20,7 @@ const format = (str: string, ...args: any[]) => {
 
 const MAX_ENTRIES = 1000;
 
-export default class TreeLog {
+export default class TreeLog implements Logger {
   _buffer: string[];
   _failed: boolean;
 
