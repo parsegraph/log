@@ -1,11 +1,14 @@
-import todo from ".";
+import log, {setLogSink} from "./index";
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("demo");
   root.style.position = "relative";
 
+  setLogSink(msg=>{
+    container.appendChild(document.createTextNode(msg));
+  });
+
   const container = document.createElement("div");
-  container.innerHTML = `${todo()}`;
   container.style.position = "absolute";
   container.style.left = "0px";
   container.style.top = "0px";
@@ -14,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   container.style.fontSize = "18px";
   container.style.fontFamily = "sans";
   const refresh = () => {
+    log("Hello!" + new Date());
     const rand = () => Math.floor(Math.random() * 255);
     document.body.style.backgroundColor = `rgb(${rand()}, ${rand()}, ${rand()})`;
     container.style.color = `rgb(${rand()}, ${rand()}, ${rand()})`;
@@ -46,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dotInterval = 500;
   root.addEventListener("click", () => {
     if (timer) {
+      log("Stopping animation");
       clearInterval(timer);
       timer = null;
       clearInterval(dotTimer);
@@ -53,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       dot.style.transition = "background-color 3s";
       dot.style.backgroundColor = "#222";
     } else {
+      log("Starting animation");
       refresh();
       dot.style.transition = "background-color 400ms";
       refreshDot();
