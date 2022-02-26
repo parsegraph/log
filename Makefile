@@ -5,6 +5,7 @@ SCRIPT_FILES = \
 	src/index.ts \
 	src/WebsocketTreeLog.ts \
 	src/NoopTreeLog.ts \
+	src/Logger.ts \
 	src/demo.ts \
 	test/test.ts
 
