@@ -13,7 +13,7 @@ export function connectLog(url: string) {
   enableLogging();
 }
 
-export function setLogSink(cb:(msg:string)=>void) {
+export function setLogSink(cb: (msg: string) => void) {
   setLogger(new CallbackTreeLog(cb));
 }
 

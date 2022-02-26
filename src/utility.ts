@@ -1,6 +1,4 @@
-import {
-  getLogger,
-} from "./global";
+import { getLogger } from "./global";
 
 export default function log(msg?: string, ...args: any) {
   getLogger().log(msg, ...args);

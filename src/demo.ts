@@ -1,11 +1,14 @@
-import log, {setLogSink} from "./index";
+import log, { enableLogging, setLogSink } from "./index";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("demo");
   root.style.position = "relative";
 
-  setLogSink(msg=>{
+  enableLogging();
+  setLogSink((msg) => {
     container.appendChild(document.createTextNode(msg));
+    container.appendChild(document.createElement('br'));
   });
 
   const container = document.createElement("div");
