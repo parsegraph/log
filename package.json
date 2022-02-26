@@ -68,5 +68,8 @@
     "babel-jest": "^27.5.1",
     "jest": "^27.5.1",
     "typedoc": "^0.22.12"
+  },
+  "peerDependencies": {
+    "parsegraph-log": "^1.7.0"
   }
 }
