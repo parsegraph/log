@@ -11,9 +11,12 @@ import {
   getLogger,
   setLogger,
   setLogSink,
+  suppressLogModule,
+  unsuppressLogModule,
+  isLogModuleSuppressed
 } from "./global";
 
-import log, { logEnter, logEnterc, logLeave, logc } from "./utility";
+import log, { logEnter, logEnterc, logLeave, logc, logModule } from "./utility";
 
 export default log;
 
@@ -22,6 +25,7 @@ export {
   logEnterc,
   logLeave,
   logc,
+  logModule,
   Logger,
   CallbackTreeLog,
   TreeLog,
@@ -33,4 +37,7 @@ export {
   setLogSink,
   getLogger,
   setLogger,
+  suppressLogModule,
+  unsuppressLogModule,
+  isLogModuleSuppressed
 };

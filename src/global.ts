@@ -25,6 +25,20 @@ export function enableLogging() {
   loggingEnabled = true;
 }
 
+const unsuppressedLogModules:{[logModule:string]:boolean} = {};
+
+export function suppressLogModule(logModule: string) {
+  unsuppressedLogModules[logModule] = false;
+}
+
+export function unsuppressLogModule(logModule: string) {
+  unsuppressedLogModules[logModule] = true;
+}
+
+export function isLogModuleSuppressed(logModule: string) {
+  return unsuppressedLogModules[logModule] !== true;
+}
+
 export function getLogger(): Logger {
   return loggingEnabled ? globalLog : noopLog;
 }
