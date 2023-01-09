@@ -25,18 +25,18 @@ export function enableLogging() {
   loggingEnabled = true;
 }
 
-const unsuppressedLogModules:{[logModule:string]:boolean} = {};
+const suppressedLogModules:{[logModule:string]:boolean} = {};
 
 export function suppressLogModule(logModule: string) {
-  unsuppressedLogModules[logModule] = false;
+  suppressedLogModules[logModule] = true;
 }
 
 export function unsuppressLogModule(logModule: string) {
-  unsuppressedLogModules[logModule] = true;
+  suppressedLogModules[logModule] = false;
 }
 
 export function isLogModuleSuppressed(logModule: string) {
-  return unsuppressedLogModules[logModule] !== true;
+  return !loggingEnabled || suppressedLogModules[logModule] === true;
 }
 
 export function getLogger(): Logger {
