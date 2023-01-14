@@ -13,7 +13,7 @@ import {
   setLogSink,
   suppressLogModule,
   unsuppressLogModule,
-  isLogModuleSuppressed
+  isLogModuleSuppressed,
 } from "./global";
 
 import log, { logEnter, logEnterc, logLeave, logc, logModule } from "./utility";
@@ -39,5 +39,5 @@ export {
   setLogger,
   suppressLogModule,
   unsuppressLogModule,
-  isLogModuleSuppressed
+  isLogModuleSuppressed,
 };

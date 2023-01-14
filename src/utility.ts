@@ -25,39 +25,39 @@ export function logc(cat: string, msg?: string, ...args: any) {
 }
 
 export function logModule(logModule: string) {
-  const isSuppressed = ()=>{
+  const isSuppressed = () => {
     return isLogModuleSuppressed(logModule);
-  }
+  };
   return {
-    log:(msg?: string, ...args: any)=>{
+    log: (msg?: string, ...args: any) => {
       if (isSuppressed()) {
         return;
       }
       log(msg, ...args);
     },
-    logEnter:(msg?: string, ...args: any)=>{
+    logEnter: (msg?: string, ...args: any) => {
       if (isSuppressed()) {
         return;
       }
       logEnter(msg, ...args);
     },
-    logEnterc:(cat: string, msg?: string, ...args: any)=>{
+    logEnterc: (cat: string, msg?: string, ...args: any) => {
       if (isSuppressed()) {
         return;
       }
       logEnterc(cat, msg, ...args);
     },
-    logLeave:(msg?: string, ...args: any)=>{
+    logLeave: (msg?: string, ...args: any) => {
       if (isSuppressed()) {
         return;
       }
       logLeave(msg, ...args);
     },
-    logc:(cat: string, msg?: string, ...args: any)=>{
+    logc: (cat: string, msg?: string, ...args: any) => {
       if (isSuppressed()) {
         return;
       }
       logc(cat, msg, ...args);
-    }
-  }
+    },
+  };
 }

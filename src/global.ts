@@ -25,7 +25,7 @@ export function enableLogging() {
   loggingEnabled = true;
 }
 
-const suppressedLogModules:{[logModule:string]:boolean} = {};
+const suppressedLogModules: { [logModule: string]: boolean } = {};
 
 export function suppressLogModule(logModule: string) {
   suppressedLogModules[logModule] = true;
