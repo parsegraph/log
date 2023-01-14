@@ -4,5 +4,5 @@ module.exports = {
   entry: {
     index: relDir("src/index.ts"),
   },
-  ...webpackConfig(true, true),
+  ...webpackConfig(true),
 };
